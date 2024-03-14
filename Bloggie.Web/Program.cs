@@ -10,8 +10,10 @@ builder.Services.AddControllersWithViews();
 // Dependency injection for DB
 builder.Services.AddDbContext<BloggieDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieDbConnectionString")));
-
+// Dependency injection for Tag Repository
 builder.Services.AddScoped<ITagRepository, TagRepository>();
+// Dependency injection for  BlogPost Repository
+builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
 var app = builder.Build();
 
